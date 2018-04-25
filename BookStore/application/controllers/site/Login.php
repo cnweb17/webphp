@@ -5,46 +5,61 @@
 class Login extends MY_Controller
 {
 	
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Customer_Model');
+	}
+
 	function index()
 	{
-		$data= array();
-		if($this->session->userdata('user') == NULL)
+		if($this->session->userdata('login') == NULL)
 		{
-			$data['temp']= 'site/login/index';
-			$this->load->view('site/layout',$data);
+			$this->data['temp']= 'site/login/index';
+			$this->load->view('site/layout',$this->data);
 		}
 		else
 		{
 			redirect(base_url());
 		}
 	}
-
+	
 	function check_login()
 	{
-		if(isset($_POST['submit']))
+		$this->load->library('form_validation');
+		$this->load->helper('form');
+
+		if($this->input->post('submit'))
 		{
-			$data= array();
-			$id= $_POST['username'];
-			$pw= $_POST['password'];
-			
-			$where = array('username' => $id, 'password' => $pw);
-			$query= $this->db->get_where('user', $where );
-			if(count($query->result())>0)
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+
+			$where= array('username' => $username, 'password' => md5($password));
+
+			if($this->Customer_Model->check_exists($where))
 			{
-				foreach ($query->result_array() as $row) {
-					$name= $row['Name'];
-				}
-				$this->session->set_userdata('user', $name);
+				//$this->session->set_userdata('admin_login', 'ok');
+				$input= array('username' => $username); 
+				$info = $this->Customer_Model->get_info_rule($input);
+				$this->session->set_userdata('login', $info->name);
+
 				redirect(base_url());
 			}
 			else
 			{
-				$data['temp'] = 'site/login/index';
-				$data['err'] = "Sai tên đăng nhập hoặc mật khẩu!";
-				$this->load->view('site/layout', $data);
+				$this->data['error'] = 'Đăng nhập thất bại';
+				$this->data['temp']= 'site/login/index';
+
+				$this->load->view('site/layout',$this->data);
+
 			}
 		}
+		else
+		{
+			redirect(base_url());
+		}
 	}
+	
 }
 
 ?>

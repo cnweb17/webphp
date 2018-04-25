@@ -5,7 +5,7 @@
 		<div class="widget">
 			<div class="title">
 				<img src="<?php echo public_url('admin'); ?>/images/icons/dark/add.png" class="titleIcon" />
-				<h6>Thêm mới Nhân viên</h6>
+				<h6>Thêm mới Admin</h6>
 			</div>
 		</div>
 		<form class="form" id="form" action="<?php echo base_url('admin/admin/add');?> " method="post" enctype="multipart/form-data">
@@ -49,40 +49,6 @@
 					<div class="clear"></div>
 				</div>
 				
-				<div class="formRow">
-					<label class="formLeft" for="param_address">Địa chỉ:<span class="req">*</span></label>
-					<div class="formRight">
-					<span class="oneTwo"><input name="address" id="param_address" _autocheck="true" type="text" value="<?php echo set_value('address'); ?>"></span>
-					<div name="address_error" class="clear error">
-						<?php echo form_error('address'); ?></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="formRow">
-					<label class="formLeft" for="param_email">Email:<span class="req">*</span></label>
-					<div class="formRight">
-					<span class="oneTwo"><input name="email" id="param_email" _autocheck="true" type="text" value="<?php echo set_value('email'); ?>"></span>
-					<div name="email_error" class="clear error">
-						<?php  echo form_error('email');?></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="formRow">
-					<label class="formLeft" for="param_phone">Số điện thoại:<span class="req">*</span></label>
-					<div class="formRight">
-					<span class="oneTwo"><input name="phone" id="param_phone" _autocheck="true" type="text" value="<?php echo set_value('phone'); ?>"></span>
-					<div name="phone_error" class="clear error">
-						<?php  echo form_error('phone');?></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="formRow">
-					<label class="formLeft" for="param_position">Vị trí:<span class="req">*</span></label>
-					<div class="formRight">
-					<span class="oneTwo"><input name="position" id="param_position" _autocheck="true" type="text" value="<?php echo set_value('position'); ?>"></span>
-					<div name="position_error" class="clear error">
-						<?php echo form_error('position'); ?></div>
-					</div>
 					<div class="clear"></div>
 				</div>
 				<div class="formSubmit">

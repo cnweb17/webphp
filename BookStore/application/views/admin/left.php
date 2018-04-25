@@ -1,4 +1,5 @@
 
+
 		<div id="leftSide" style="padding-top:30px;">
 		
 		    <!-- Account panel -->
@@ -30,16 +31,14 @@
 				<strong>2</strong>
 			</a>
 			
-							<ul class="sub" style="display: none;">
-											<li>
-							<a href="admin/tran.html">
-								Giao dịch							</a>
+					<ul class="sub" >
+						<li>
+							<a href="admin/tran.html">Giao dịch</a>
 						</li>
-											<li>
-							<a href="admin/product_order.html">
-								Đơn hàng sản phẩm							</a>
+						<li>
+							<a href="admin/product_order.html">Đơn hàng sản phẩm</a>
 						</li>
-									</ul>
+					</ul>
 						
 		</li>
 			<li class="product">
@@ -49,20 +48,16 @@
 				<strong>3</strong>
 			</a>
 			
-							<ul class="sub" style="display: none;">
+				<ul class="sub" >
 											<li>
-							<a href="admin/product.html">
-								Sản phẩm							</a>
-						</li>
+					<a href="<?php echo base_url('admin/book/index'); ?>">
+								Sách							</a>
+					</li>
 											<li>
-							<a href="admin/cat.html">
-								Danh mục							</a>
-						</li>
-											<li>
-							<a href="admin/comment.html">
-								Phản hồi							</a>
-						</li>
-									</ul>
+					<a href="<?php echo base_url('admin/type/index'); ?>">
+								Thể loại							</a>
+					</li>
+				</ul>
 						
 		</li>
 			<li class="account">
@@ -72,39 +67,16 @@
 				<strong>3</strong>
 			</a>
 			
-							<ul class="sub" style="display: none;">
-											<li>
-							<a href="admin/admin.html">
-								Ban quản trị							</a>
-						</li>
-											<li>
-							<a href="admin/admin_group.html">
-								Nhóm quản trị							</a>
-						</li>
-											<li>
-							<a href="admin/user.html">
-								Thành viên							</a>
-						</li>
-									</ul>
-						
-		</li>
-			<li class="support">
-		
-			<a href="admin/support.html" class="exp inactive">
-				<span>Hỗ trợ và liên hệ</span>
-				<strong>2</strong>
-			</a>
-			
-							<ul class="sub" style="display: none;">
-											<li>
-							<a href="admin/support.html">
-								Hỗ trợ							</a>
-						</li>
-											<li>
-							<a href="admin/contact.html">
-								Liên hệ							</a>
-						</li>
-									</ul>
+						<ul class="sub" >
+							<li>
+								<a href="<?php echo base_url('admin/admin') ;?>">
+									Ban quản trị							</a>
+							</li>
+							<li>
+							<a href="<?php echo base_url('admin/customer') ;?>">
+									Khách hàng							</a>
+							</li>
+						</ul>
 						
 		</li>
 			<li class="content">
@@ -114,7 +86,7 @@
 				<strong>4</strong>
 			</a>
 			
-							<ul class="sub" style="display: none;">
+							<ul class="sub" >
 											<li>
 							<a href="admin/slide.html">
 								Slide							</a>

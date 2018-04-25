@@ -60,10 +60,6 @@ class Admin extends MY_Controller
 		$this->form_validation->set_rules('repassword','Nhập lại mật khẩu', 
 			'required|matches[password]');
 		$this->form_validation->set_rules('name','Họ tên', 'required');
-		$this->form_validation->set_rules('address','Địa chỉ', 'required');
-		$this->form_validation->set_rules('email','Email', 'required|valid_email');
-		$this->form_validation->set_rules('phone','Số điện thoại', 'required|numeric');
-		$this->form_validation->set_rules('position','Vị trí', 'required');
 
 		if($this->form_validation->run() == FALSE)
 		{
@@ -73,12 +69,8 @@ class Admin extends MY_Controller
 		else
 		{
 			$input = array('username' => $this->input->post('username'),
-				'password' => $this->input->post('password'),
-				'Name' => $this->input->post('name'),
-				'address' => $this->input->post('address'),
-				'email' => $this->input->post('email'),
-				'phonenumber' => $this->input->post('phone'),
-				'position' => $this->input->post('position')
+				'password' => md5($this->input->post('password')),
+				'name' => $this->input->post('name'),
 			);
 
 			//$result = $this->Admin_Model->create($input);
@@ -100,11 +92,16 @@ class Admin extends MY_Controller
 	{
 		$id= $this->uri->segment(4);
 		$info = $this->Admin_Model->get_info($id);
-		$this->data['info']= $info;
-
-
-		$this->data['temp']= 'admin/admin/editemployee';
-		$this->load->view('admin/main',$this->data);
+		if($info == FALSE){
+			$this->session->set_flashdata('message','Không tồn tại nhân viên');
+			redirect(base_url('admin/admin'));
+		}
+		else
+		{
+			$this->data['info']= $info;
+			$this->data['temp']= 'admin/admin/editemployee';
+			$this->load->view('admin/main',$this->data);
+		}
 	}
 
 	function edit()
@@ -118,10 +115,6 @@ class Admin extends MY_Controller
 
 		
 		$this->form_validation->set_rules('name','Họ tên', 'required');
-		$this->form_validation->set_rules('address','Địa chỉ', 'required');
-		$this->form_validation->set_rules('email','Email', 'required|valid_email');
-		$this->form_validation->set_rules('phone','Số điện thoại', 'required|numeric');
-		$this->form_validation->set_rules('position','Vị trí', 'required');
 
 		$password= $this->input->post('password');
 		if($password)
@@ -146,19 +139,17 @@ class Admin extends MY_Controller
 		else
 		{
 			$input = array(
-				'Name' => $this->input->post('name'),
-				'address' => $this->input->post('address'),
-				'email' => $this->input->post('email'),
-				'phonenumber' => $this->input->post('phone'),
-				'position' => $this->input->post('position')
+				'name' => $this->input->post('name'),
 			);
-			/*'username' => $this->input->post('username'),
-				'password' => $this->input->post('password'),*/
+			if($username != $info->username)
+			{
+				$input['username'] = $username;
+			}
 			if($password)
 			{
-				$input['password']= $password;
+				$input['password']= md5($password);
 			}
-			if($this->Admin_Model->update($info->idemployee,$input))
+			if($this->Admin_Model->update($info->id_admin,$input))
 			{
 				$this->session->set_flashdata('message','Cập nhật thành công');
 			}
@@ -171,6 +162,35 @@ class Admin extends MY_Controller
 		}
 	}
 
+	function del()
+	{
+		$id= $this->uri->segment(4);
+		$info = $this->Admin_Model->get_info($id);
+		if($info == FALSE){
+			$this->session->set_flashdata('message','Không tồn tại nhân viên');
+			redirect(base_url('admin/admin'));
+		}
+		else
+		{
+			if($this->Admin_Model->delete($id))
+			{
+				$this->session->set_flashdata('message','Xóa thành công');
+			}
+			else
+			{
+				$this->session->set_flashdata('message','Không xóa được');
+			}
+			redirect(base_url('admin/admin'));
+		}
+	}
 
+	function logout()
+	{
+		if($this->session->userdata('admin_login'))
+		{
+			$this->session->unset_userdata('admin_login');
+		}
+		redirect(base_url('admin/login'));
+	}
 }
 ?>

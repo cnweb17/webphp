@@ -5,25 +5,20 @@
 </head>
 <body>
 	<div id="container">
-		<div id="menu">
 			<?php $this->load->view("site/menu.php");?>
-		</div>
-		<div id="header">
+		<div id="header1">
 			<?php $this->load->view("site/header.php");?>
+		</div>
+		<div class="search-form" style="position: absolute; right: 250px; size:100px ">
+					<form method="get" action="/tim-kiem.html">
+						<input type="search" id="search_query" placeholder="Tìm kiếm..." value="" name="search_query" class="search-input">
+						<input type="submit" value="Search" name="submit" class="search-submit">
+					</form>
+					<div class="auto_suggest"></div>
 		</div>
 		<div id="content">
 			<!-- Cho nay de load Cac trang : trang chu, dang nhap, dang ki, tim kiem -->
 			<?php
-				/*if(isset($temp))
-				{	
-					if (isset($err)) {
-						$this->load->view($temp,$err);
-					}
-					else
-					{
-						$this->load->view($temp);
-					}
-				}*/
 				$this->load->view($temp);
 			?>
 		</div>

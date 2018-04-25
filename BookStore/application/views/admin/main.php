@@ -20,9 +20,10 @@
 				$this->load->view($temp);
 			}
 		?>
-
 		<div class="clear mt30"></div>
-		<div id="footer">
+		<div class="clear mt30"></div>
+		<div class="clear"></div>
+		<div id="footer" style="position: absolute;" >
 	        <?php $this->load->view('admin/footer'); ?>
 	    </div>
 	    <div class="clear"></div>

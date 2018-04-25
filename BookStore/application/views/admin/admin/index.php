@@ -24,10 +24,6 @@
 					<td style="width:80px;">Mã số</td>
 					<td>Tài Khoản</td>
 					<td>Họ Tên</td>
-					<td>Địa Chỉ</td>
-					<td>Email</td>
-					<td>Số điện thoại</td>
-					<td>Vị trí</td>
 					<td style="width:100px;">Hành động</td>
 				</tr>
 			</thead>
@@ -51,35 +47,23 @@
 				<!-- Filter -->
 				<?php  foreach ($list as $row): ?>
 					<tr>
-						<td><input type="checkbox" name="id[]" value="<?php echo $row->idemployee ;?>"></td>
+						<td><input type="checkbox" name="id[]" value="<?php echo $row->id_admin ;?>"></td>
 						
-						<td class="textC"><?php echo $row->idemployee ;?></td>
+						<td class="textC"><?php echo $row->id_admin ;?></td>
 						
 						
 						<td><span title="<?php echo $row->username ;?>" class="tipS">
 							<?php echo $row->username ;?> </span></td>
 
-						<td><span title="<?php echo $row->Name ;?>" class="tipS">
-							<?php echo $row->Name ;?> </span></td>
-
-							<td><span title="<?php echo $row->address ;?>" class="tipS">
-							<?php echo $row->address ;?> </span></td>
-
-							<td><span title="<?php echo $row->email ;?>" class="tipS">
-							<?php echo $row->email ;?> </span></td>
-
-							<td><span title="<?php echo $row->phonenumber ;?>" class="tipS">
-							<?php echo $row->phonenumber ;?> </span></td>
-
-						<td><span title="<?php echo $row->position ;?>" class="tipS">
-							<?php echo $row->position ;?></span></td>
+						<td><span title="<?php echo $row->name ;?>" class="tipS">
+							<?php echo $row->name ;?> </span></td>
 						
 						<td class="option">
-							 <a href="<?php echo base_url('admin/admin/load_edit/'.$row->idemployee);  ?>" title="Chỉnh sửa" class="tipS ">
+							 <a href="<?php echo base_url('admin/admin/load_edit/'.$row->id_admin);  ?>" title="Chỉnh sửa" class="tipS ">
 							<img src="<?php echo public_url('admin'); ?>/images/icons/color/edit.png">
 							</a>
 							
-							<a href="user/del/19.html" title="Xóa" class="tipS verify_action">
+							<a href="<?php echo base_url('admin/admin/del/'.$row->id_admin);  ?>" title="Xóa" class="tipS verify_action">
 							    <img src="<?php echo public_url('admin'); ?>/images/icons/color/delete.png">
 							</a>
 						</td>

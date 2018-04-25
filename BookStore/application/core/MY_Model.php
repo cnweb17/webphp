@@ -72,7 +72,7 @@ class MY_Model extends CI_Model
         else
         {
             //id nằm trong chuoi các id truyền vào
-            $where =  $this->key." IN (".$id.") ";
+            $where =  $this->key." LIKE '".$id."' ";
         }
         return $this->del_rule($where);
      }
@@ -108,6 +108,7 @@ class MY_Model extends CI_Model
         $where[$this->key] = $id;
         return $this->get_info_rule($where);
     }
+
 
     /**
      * Lay thong tin cua row tu dieu kien
@@ -154,6 +155,13 @@ class MY_Model extends CI_Model
         {
             $this->db->where($input['where']);
         }
+
+        //tim du lieu theo ten (like)
+        if((isset($input['like'])) && $input['like'] )
+        {
+            $this->db->like($input['like'][0], $input['like'][1]);
+        }
+
                 // Thêm sắp xếp dữ liệu thông qua biến $input['order'] (ví dụ $input['order'] = array('id','DESC'))
         if (isset($input['order'][0]) && isset($input['order'][1]))
         {
@@ -171,12 +179,21 @@ class MY_Model extends CI_Model
             $this->db->limit($input['limit'][0], $input['limit'][1]);
         }     
     }
+
+
+    function get_last_record($key)
+    {
+        $query = $this->db->query("SELECT ".$key." FROM ".$this->table." ORDER BY ".$key." DESC LIMIT 1");
+        $result = $query->result();
+        return $result;
+    }
+
      /**
     * Lay tong so
     */
     function get_total($input = array())
     {
-                //gắn các tùy chọn nếu có
+            //gắn các tùy chọn nếu có
         $this->get_list_set_input($input);
         //thuc hien truy van du lieu
         $query = $this->db->get($this->table);

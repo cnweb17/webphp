@@ -32,55 +32,39 @@ img {
 
 /* menu */
 
-#menu {
-	clear: both;
-	width: 960px;
-	height: 50px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+.cl { display: block; height: 0; font-size: 0; line-height: 0; text-indent: -4000px; clear: both; }
+.notext { font-size: 0; line-height: 0; text-indent: -4000px; }
+.left, .alignleft { float: left; display: inline; }
+.right, .alignright { float: right; display: inline; }
 
-}
+.shell { width: 884px; margin: 0 auto; background: url(images/shell.png) repeat-y 0 0; padding: 0 57px 0 57px; position: relative; }
 
-#logo {
-    float: left;
-	display: inline;
-}
-#navigation {
-    float: right;
-    position: relative;
-    display: inline;
-    line-height: 20px;
-    padding: 14px 4px 23px 0;
-}
+#header { padding-top: 30px; }
 
-#menu ul {
-	padding: 13px 0 0 0;
-	margin: 0;
-	list-style: none;
-}
+#logo { width: 238px; height: 41px; float: left; display: inline; margin-left: -4px;  position: relative; }
+#logo span { position: absolute; bottom: -17px; right: -1px; font-size: 11px; line-height: 20px; }
+#logo span a { color: #44acd5; }
+#logo h1 a { display: block; height: 41px; background: url(images/logo.png); text-indent: -4000px; font-size: 0; line-height: 0; }
 
-#menu ul li{
-	display: inline;
-}
+#login-details { position: absolute; right: 60px; top: 16px; font-size: 12px; line-height: 16px; color: #707070; }
+#login-details #user { color: #0182b5; text-decoration: underline; font-weight:bold; }
+#login-details #user:hover { color: #000; text-decoration: underline; }
+#login-details .sum { color: #0182b5; }
+#login-details .sum:hover { text-decoration: none; color: #000; }
+#login-details p { float: left; display: inline; }
+#login-details .cart { float: left; display: inline; margin: 0 6px 0 12px; }
+#login-details .cart img { display: block; }
 
-#menu ul li a{
-	float: left;
-	padding: 0 20px;
-	font-size: 14px;
-	font-weight: bold;
-	text-align: center;
-	text-decoration: none;
-	color: #2E2D28;
-}
+#navigation { float: right; display: inline; font-family: 'Georgia', Arial, serif; font-size: 14px; line-height: 20px; padding: 24px 4px 23px 0; }
+#navigation ul li { list-style: none; padding-left: 33px; float: left; display: inline; }
+#navigation ul li a { color: #383838; }
+#navigation ul li a.active { font-style: italic; font-weight: bold; text-decoration: none; cursor: default; }
 
-#menu li a:hover, #menu li .current{
-	color: #868b7e;
-}
 
 /* end of menu*/
 
 /* header */
-#header {
+#header1 {
 	clear: both;
 	width: 960px;
 	height: 285px;
@@ -89,10 +73,19 @@ img {
     color: #ffffff;
 }
 
-#header img{
+#header1 img{
     margin-left: 35px;
     align-items: center;
 }
+
+#login-details { position: absolute; right: 60px; top: 16px; font-size: 12px; line-height: 16px; color: #707070; }
+#login-details #user { color: #0182b5; text-decoration: underline; font-weight:bold; }
+#login-details #user:hover { color: #000; text-decoration: underline; }
+#login-details .sum { color: #0182b5; }
+#login-details .sum:hover { text-decoration: none; color: #000; }
+#login-details p { float: left; display: inline; }
+#login-details .cart { float: left; display: inline; margin: 0 6px 0 12px; }
+#login-details .cart img { display: block; }
 
 /* end of header */
 
@@ -179,7 +172,7 @@ img {
     float: left;
     display: inline;
     width: 150px; 
-    height: 330px; 
+    height: 350px; 
     margin: 0 15px 10px 0;
 }
 
@@ -197,7 +190,7 @@ img {
 
 .products ul li a.info .holder {
     padding: 10px 9px;
-    height: 240px;
+    height: 280px;
     border: solid 1px #dcdcdc;
     display: block;
 }
@@ -245,5 +238,42 @@ img {
 a.session
 {
 	color: green;
+}
+
+
+.pagination {
+    display: block;
+    padding: 5px 10px;
+    float:right;
+}
+.pagination a {
+    background: #f3f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 #eaeaea, 0 1px 0 #ffffff inset;
+    color: #717171;
+    display: inline-block;
+    float: left;
+    font-weight: 700;
+    line-height: 25px;
+    margin-right: 4px;
+    min-height: 25px;
+    padding: 0 10px;
+    text-decoration: none;
+}
+.pagination strong{
+    background: #f3f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 #eaeaea, 0 1px 0 #ffffff inset;
+    color: maroon;
+    display: inline-block;
+    float: left;
+    font-weight: 700;
+    line-height: 25px;
+    margin-right: 4px;
+    min-height: 25px;
+    padding: 0 10px;
+    text-decoration: none;
 }
 /* end of footer */

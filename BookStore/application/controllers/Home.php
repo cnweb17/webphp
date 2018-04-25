@@ -3,18 +3,75 @@
 	/**
 	* 
 	*/
-	class Home extends CI_Controller
+	class Home extends MY_Controller
 	{
 		
 		function __construct()
 		{
 			parent::__construct();
+			$this->load->model('admin/Book_Model');
 		}
 		function index()
+		{	
+			$total = $this->Book_Model->get_total();
+			$this->data['total']= $total;
+
+			$this->load->library('pagination');
+			$config = array();
+			$config['base_url']    = base_url('home/index');
+			$config['total_rows']  = $total;
+			$config['per_page']    = 12;
+			$config['uri_segment'] = 3;
+			$config['next_link']   = "Trang kế";
+			$config['prev_link']   = "Trang trước";
+			$config['last_link']   = ">>";
+			$config['first_link']   = "<<";
+			$this->pagination->initialize($config);
+
+			$segment= $this->uri->segment(3);
+			$segment = intval($segment);
+			$input= array();
+			$input['limit']= array($config['per_page'], $segment);
+
+			//$input['where'] = array();
+			//$input['where']['id_type'] = 'vhnn';
+
+			$list= $this->Book_Model->get_list($input);
+			$this->data['list']= $list;
+
+			// lay danh sách các thể loại
+			$this->load->model('admin/Type_Model');
+			$types = $this->Type_Model->get_list();
+			$this->data['types']= $types; ////////////////////
+
+			//print_r($list);
+
+			$this->data['temp']= 'site/home/index';
+			$this->load->view('site/layout',$this->data);
+		}
+
+
+		function type()
 		{
-			$data= array();
-			$data['temp']= 'site/home/index';
-			$this->load->view('site/layout',$data);
+			$id_type = $this->uri->segment(3);
+
+			$this->load->model('admin/Type_Model');
+			$type= $this->Type_Model->get_info($id_type);
+			$this->data['type'] = $type;
+
+			$input = array();
+			$input['where'] = array();
+			$input['where']['id_type']= $id_type;
+
+			$list= $this->Book_Model->get_list($input);
+			$this->data['list']= $list;
+
+			// lay danh sách các thể loại
+			$types = $this->Type_Model->get_list();
+			$this->data['types']= $types; ////////////////////
+
+			$this->data['temp'] = 'site/home/type';
+			$this->load->view('site/layout',$this->data);
 		}
 	}
 ?>

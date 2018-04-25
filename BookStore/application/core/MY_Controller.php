@@ -13,7 +13,7 @@
 			
 			switch ($controller) {
 				case 'admin':
-					//xu li du lieu khi truy cap vao trang admin
+					$this->_check_login();
 					break;
 				
 				default:
@@ -22,9 +22,19 @@
 			}
 		}
 
-		function check_admin()
+		function _check_login()
 		{
-			
+			$crl = $this->uri->segment(2);
+			$login = $this->session->userdata('admin_login');
+
+			if(($login!= 'ok')&& ($crl != 'login'))
+			{
+				redirect(base_url('admin/login'));
+			}
+			if(($login == 'ok') && ($crl == 'login'))
+			{
+				redirect(base_url('admin/home'));
+			}
 		}
 
 	}

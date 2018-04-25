@@ -11,20 +11,27 @@
 	        	<h6>Đăng nhập</h6>
 	        </div>
 	        
-	        <form class="form" id="form" action="" method="post">
+	        <form class="form" id="form" action="<?php echo base_url('admin/login/check_login') ;?>" method="post">
 	           <fieldset>
 	                <div class="formRow">
 	                    <label for="param_username">Tên đăng nhập:</label>
-	                    <div class="loginInput"><input type="text" name="username" id="param_username" placeholder="username" /></div>
+	                    <div class="loginInput"><input type="text" name="username" id="param_username" placeholder="username" 
+	                    	value="<?php echo set_value('username');?>" required /></div>
 	                    <div class="clear"></div>
 	                </div>
 	                
 	                <div class="formRow">
 	                    <label for="param_password">Mật khẩu:</label>
-	                    <div class="loginInput"><input type="password" name="password" id="param_password" placeholder= "password" /></div>
+	                    <div class="loginInput"><input type="password" name="password" id="param_password" placeholder= "password" 
+	                    	value="<?php echo set_value('password'); ?>"  required /></div>
 	                    <div class="clear"></div>
 	                </div>
-	                
+	                <p style="font-size: 20px; color: red; margin-left: 20px">
+	                <?php if(isset($error) && $error)
+	                		{
+	                			echo $error;
+	                		}?>	
+	                </p>
 	                <div class="loginControl">
 	                    <input type='hidden' name="submit" value='1'/>
 	                    <input type="submit"  value="Đăng nhập" class="dredB logMeIn" />
