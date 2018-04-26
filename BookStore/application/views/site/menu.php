@@ -13,8 +13,8 @@
             <?php
                 if($this->session->userdata('login') == NULL)
                 {
-                    echo "<li><a href='".base_url('login')."'>Đăng nhập</a></li>";
-                    echo "<li><a href='".base_url('site/login/index')."'>Đăng kí</a></li>";
+                    echo "<li><a href='".base_url('site/login/index')."'>Đăng nhập</a></li>";
+                    echo "<li><a href='".base_url('site/signup/index')."'>Đăng kí</a></li>";
                      
                 }
                 else

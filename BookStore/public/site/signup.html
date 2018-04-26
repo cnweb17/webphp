@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form css</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+ 
+<div class="loginbox radius">
+  <h2 style="color:#141823; text-align:center;">Welcome to Our Website</h2>
+  <div class="loginboxinner radius">
+    <!--loginheader-->
+    <div class="loginform">
+      <form id="login" action="" method="post">
+        <p>
+          <input type="text" id="firstname" name="name" placeholder="Họ tên" value="" class="radius mini" />
+          <input type="date" id="lastname" name="birthday" placeholder="" value="" class="radius mini" />
+        	<div style="width: 490px">
+        		<div name="name_error" class="clear error" 
+        		style="float: left; padding-left:20px;font-size: 15px;color: red; " >
+        			Họ tên không được bỏ trống
+				</div>
+				<div name="birthday_error" class="clear error" 
+				style="float: right; padding-right: 30px;font-size: 15px;color: red;" >
+        			Ngày sinh không duoc bỏ trống
+				</div>
+			</div>
+        </p>
+        <!-- -->
+        <p>
+          <input type="text" id="email" name="username" placeholder="Tên đăng nhập" value="" class="radius" />
+          <div name="email_error" class="clear error" style="float: left; padding-left:20px;font-size: 15px;color: red; " >
+        	
+		</div>
+        </p>
+
+        <p>
+          <input type="password" id="password" name="password" placeholder="Mật khẩu" class="radius" />
+          <div name="password_error" class="clear error" style="float: left; padding-left:20px;font-size: 15px;color: red; " >
+        	
+		</div>
+        </p>
+        <p>
+          <input type="password" id="repassword" name="repassword" placeholder="Nhập lại mật khẩu" class="radius" />
+          <div name="repassword_error" class="clear error" 
+          style="float: left; padding-left:20px;font-size: 15px;color: red; " >
+        	
+		</div>
+        </p>
+        <p>
+          <input type="text" id="address" name="address" placeholder="Địa chỉ" value="" class="radius" />
+          <div name="address_error" class="clear error" 
+          style="float: left; padding-left:20px;font-size: 15px;color: red; ">
+        	
+		</div>
+        </p>
+        <p>
+          <input type="text" id="phone_number" name="phone_number" placeholder="Số điện thoại" value="" class="radius" />
+        <div name="phone_number_error" class="clear error"
+         style="float: left; padding-left:20px;font-size: 15px;color: red; " >
+
+		</div>
+        </p>
+        <p>
+          <button class="radius title" name="signup">Sign Up for Facebook</button>
+        </p>
+      </form>
+    </div>
+    <!--loginform-->
+  </div>
+  <!--loginboxinner-->
+</div>
+<!--loginbox-->
+</body>
+</html>
+

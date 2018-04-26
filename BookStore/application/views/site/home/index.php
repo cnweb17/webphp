@@ -1,4 +1,9 @@
-<?php $this->load->view('site/home/left');?>
+<?php $this->load->view('site/home/left');
+	if(isset($message) && $message)
+	{
+		echo "<script>alert('".$message."');</script>";
+	}
+?>
 <div id="content_right">
             <h3>Books</h3>
 			<div class="products">

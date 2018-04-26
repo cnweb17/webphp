@@ -46,6 +46,8 @@
 
 			//print_r($list);
 
+			$this->data['message'] = $this->session->flashdata('message');
+
 			$this->data['temp']= 'site/home/index';
 			$this->load->view('site/layout',$this->data);
 		}

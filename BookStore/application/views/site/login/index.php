@@ -18,7 +18,7 @@
 					value="<?php echo $this->input->post('password');?>">
 				</p> 
 
-				<p><input type="submit" name= "submit" value="Đăng nhập"> <a style="color: green" href="#">Đăng kí ngay</a> </p>
+				<p><input type="submit" name= "submit" value="Đăng nhập"> <a style="color: green" href="<?php echo base_url('site/signup');?>">Đăng kí ngay</a> </p>
 				<div class="error" align="center" style="font-size: 20px;">
 					<?php
 						if(isset($error) && $error)
