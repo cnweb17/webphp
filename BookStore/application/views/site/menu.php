@@ -31,7 +31,7 @@
     <div id="login-details">
         <?php if($this->session->userdata('login') == NULL)
                 {
-                    echo '<p>Welcome, <a href="#" id="user">Guest</a> .</p>';
+                    echo '<p>Xin chào, <a href="#" id="user">Guest</a> .</p>';
                 }
                 else
                 {

@@ -3,3 +3,4 @@
 <link href="<?php echo public_url('site'); ?>/style.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site'); ?>/stylelogin.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site'); ?>/stylesignup.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo public_url('site'); ?>/bookstyle.css" rel="stylesheet" type="text/css" />

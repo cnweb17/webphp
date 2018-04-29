@@ -1,0 +1,159 @@
+.book_container
+{
+width: 920px;
+overflow: auto;
+background-color: white;
+}
+.book_image
+{
+width: 300px;
+float: left;
+margin-left: 10px;
+margin-top: 5px;
+}
+#image
+{
+	width: 280px;
+	height: 380px;
+}
+
+.book_content
+{
+position: relative;
+width: 590px;
+height: 400px;
+float: right;
+margin-left: 5px;
+margin-top:5px;
+padding-right: 10px;
+}
+#title
+{
+line-height: 1.2; 
+font-size: 25px;
+color: black;
+margin-top: 5px;
+
+}
+.author
+{
+	margin-top: 20px;
+	font-size: 14px;
+	color: blue;
+}
+#price
+{
+	margin-top: 20px;
+	font-size: 25px;
+	color: red;
+}
+.description
+{
+	margin-top: 20px;
+	font-size: 15px;
+}
+.button
+{
+	margin-top: 30px;
+	width: 250px;
+	height: 40px;
+	border: solid;
+	border-width: 1px;
+	padding-top: 8px;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 4px;
+}
+/* san pham tuong tu*/
+.relation
+{
+
+width: 920px;
+overflow: auto;
+background-color: white;
+margin-top: 20px;
+height: 400px;
+}
+
+.books .book { 
+    width: 164px; 
+    position: relative; 
+    float: left;
+    margin-top: 10px;
+}
+
+.books ul { 
+    list-style: none; 
+    position: relative;
+    width: 860px; 
+    margin-left: 40px;
+}
+
+.books ul li { 
+    float: left;
+    display: inline;
+    width: 150px; 
+    height: 350px;
+    margin: 0 15px 10px 0;
+}
+
+.books ul li a.info {
+    display: block; 
+    padding: 7px;
+    width: 150px;
+    height: 329px;
+}
+
+.books ul li a.info:hover { 
+    background: url(images/product-hover.png) no-repeat 0 0;
+    text-decoration: none;
+}
+
+.books ul li a.info .holder {
+    padding: 10px 9px;
+    height: 280px;
+    border: solid 1px #dcdcdc;
+    display: block;
+}
+
+.books img { 
+    padding: 0 7px 8px;
+    width: 120px;
+    height: 160px;
+}
+
+.book .book-name { 
+    font-size: 12px; 
+    line-height: 20px;
+    color: #0182b5; 
+    font-family: Arial, serif;
+    display: block; 
+}
+
+.book .author { 
+    font-size: 11px;
+    line-height: 16px; 
+    color: #3d3d3d; 
+    font-family: Arial, serif; 
+    padding: 0 0 9px 1px;
+    display: block;
+}
+
+/* detail sách */
+.details
+{
+width: 880px;
+overflow: auto;
+background-color: white;
+margin-top: 20px;
+padding: 20px;
+}
+.book_name
+{	
+	margin-top: 20px;
+	font-size: 23px;
+}
+.detail
+{
+	margin-top: 20px;
+}

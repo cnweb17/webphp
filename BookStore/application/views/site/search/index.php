@@ -1,11 +1,18 @@
-<?php $this->load->view('site/home/left');
-	if(isset($message) && $message)
-	{
-		echo "<script>alert('".$message."');</script>";
-	}
+<?php
+	$this->load->view('site/home/left');
 ?>
+
 <div id="content_right">
+
             <h3>Books</h3>
+
+            <?php 
+				if(empty($list)) 
+				{
+					echo "<p style='color:red;font-size:18px;'>
+					Không có sách theo yêu cầu</p>";
+				} 
+			?>
 			<div class="products">
 				<ul>
 					<?php foreach($list as $row):?>
@@ -24,14 +31,4 @@
 					
 				</ul>
 			</div>
-
-	<div style="width: 300px;">
-		<div class='pagination' style="position: inherit;">
-			<?php echo $this->pagination->create_links();?>  
-		</div>
-	</div>
-	
-</div> <!-- end of content right -->
-
-	
-		
+</div>

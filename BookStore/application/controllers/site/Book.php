@@ -12,31 +12,40 @@ class Book extends MY_Controller
 	}
 
 	function index()
-	{
-		$total = $this->Book_Model->get_total();
-		$this->data['total']= $total;
+	{	
+		$id_book = $_GET['id'];
+		$info= $this->Book_Model->get_info($id_book);
+		$this->data['info']= $info; 
+		
+		//rut gon noi dung sach
+		$shortcut = "";
+		if(strlen($info->description) >=500)
+		{
+			$shortcut = substr($info->description, 0, 500);
+		}
+		else
+		{
+			$shortcut = $info->description;
+		}
+		$this->data['shortcut'] = $shortcut;
 
-		$this->load->library('pagination');
-		$config = array();
-		$config['base_url']    = base_url('site/home/index');
-		$config['total_rows']  = $total;
-		$config['per_page']    = 5;
-		$config['uri_segment'] = 4;
-		$config['next_link']   = "Trang kế";
-		$config['prev_link']   = "Trang trước";
-		$this->pagination->initialize($config);
+		//lay ten thể loại
+		$this->load->model('admin/Type_Model');
+		$type= $this->Type_Model->get_info($info->id_type);
+		$type_name= $type->name;
 
-		$segment= $this->uri->segment(4);
-		$segment = intval($segment);
-		$input= array();
-		$input['limit']= array($config['per_page'], $segment);
+		//lay danh sach sách cùng thể loại
+		$input['where']= array();
+		$input['where']['id_type']= $info->id_type;
+		$input['where']['id_book !=']= $id_book;
+		$input['limit'] = array(5,1);
+		$list = $this->Book_Model->get_list($input);
+		$this->data['list'] = $list;
 
-		$list= $this->Book_Model->get_list($input);
-		$this->data['list']= $list;
+		$this->data['type_name']= $type_name;
 
-		$this->data['temp']= 'site/home/index';
+		$this->data['temp']= 'site/book/index';
 		$this->load->view('site/layout',$this->data);
-
 	}
 }
 ?>

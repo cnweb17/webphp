@@ -6,7 +6,7 @@
 					<?php foreach($list as $row):?>
 					<li>
 						<div class="product">
-							<a href="#" class="info">
+							<a href="<?php echo base_url('site/book/index?id='.$row->id_book);?>" class="info">
 								<span class="holder">
 									<img src="<?php echo public_url('site/images/book/').$row->link_image;?>" alt="" />
 									<span class="book-name"><?php echo $row->name;?></span>

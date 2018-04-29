@@ -17,8 +17,9 @@
 					</form>
 					<div class="auto_suggest"></div>
 		</div>
-		<div id="content">
 		-->
+		<div id="content">
+		
 			<!-- Cho nay de load Cac trang : trang chu, dang nhap, dang ki, tim kiem -->
 			<?php
 				$this->load->view($temp);

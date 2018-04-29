@@ -10,6 +10,10 @@
 		{
 			parent::__construct();
 			$this->load->model('admin/Book_Model');
+			$this->load->model('admin/Type_Model');
+			$types = $this->Type_Model->get_list();
+			$this->data['types']= $types;
+			
 		}
 		function index()
 		{	
@@ -33,18 +37,18 @@
 			$input= array();
 			$input['limit']= array($config['per_page'], $segment);
 
-			//$input['where'] = array();
-			//$input['where']['id_type'] = 'vhnn';
+			
+			//tim kiem
+			$query = $this->input->get('query');
+			if($query)
+			{
+				$input['like'] = array('name', $query);
+				$input['or_like'] = array('author', $query);
+			}
+
 
 			$list= $this->Book_Model->get_list($input);
 			$this->data['list']= $list;
-
-			// lay danh sách các thể loại
-			$this->load->model('admin/Type_Model');
-			$types = $this->Type_Model->get_list();
-			$this->data['types']= $types; ////////////////////
-
-			//print_r($list);
 
 			$this->data['message'] = $this->session->flashdata('message');
 
@@ -56,10 +60,11 @@
 		function type()
 		{
 			$id_type = $this->uri->segment(3);
-
-			$this->load->model('admin/Type_Model');
+			
+			//$this->load->model('admin/Type_Model');
 			$type= $this->Type_Model->get_info($id_type);
 			$this->data['type'] = $type;
+			
 
 			$input = array();
 			$input['where'] = array();
@@ -68,12 +73,24 @@
 			$list= $this->Book_Model->get_list($input);
 			$this->data['list']= $list;
 
-			// lay danh sách các thể loại
-			$types = $this->Type_Model->get_list();
-			$this->data['types']= $types; ////////////////////
-
 			$this->data['temp'] = 'site/home/type';
 			$this->load->view('site/layout',$this->data);
+		}
+
+		function search()
+		{
+			$query = $this->input->get('query');
+			if($query)
+			{
+				$input['like'] = array('name', $query);
+				$input['or_like'] = array('author', $query);
+			}
+			$list= $this->Book_Model->get_list($input);
+			$this->data['list']= $list;
+
+			$this->data['temp']= 'site/home/index';
+			$this->load->view('site/layout',$this->data);
+
 		}
 	}
 ?>
