@@ -12,6 +12,7 @@ class Logout extends MY_Controller
 		if($this->session->userdata('login'))
 		{
 			$this->session->unset_userdata('login');
+			$this->session->unset_userdata('username_logged_in');
 		}
 
 		redirect(base_url());

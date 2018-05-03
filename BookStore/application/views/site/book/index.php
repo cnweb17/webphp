@@ -30,7 +30,7 @@
 		</div>
 
 		<div style="width: 200px;height: 30px;">
-			<a href="#" style="color: green" >
+			<a href="<?php echo base_url('site/cart/add/'.$info->id_book);?>" style="color: green" target="_blank" >
 			<div class="button">
 				THÊM VÀO GIỎ HÀNG
 			</div>

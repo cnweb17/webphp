@@ -5,11 +5,6 @@
     <div id="navigation">
         <ul>
             <li><a href="<?php echo base_url();?>" class="active">Home</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Promotions</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">About Us</a></li>
-
             <?php
                 if($this->session->userdata('login') == NULL)
                 {
@@ -35,10 +30,15 @@
                 }
                 else
                 {
-                    echo '<p>Welcome, <a href="#" id="user">'.$this->session->userdata("login").'</a> .</p>';
+                    echo '<p>Xin chào, <a href="#" id="user">'.$this->session->userdata("login").'</a> .</p>';
                 }
         ?>
-        <p><a href="#" class="cart"><img src="css/images/cart-icon.png" alt=""></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+        <p>
+            <a href="<?php echo base_url('site/cart');?>" class="sum">Giỏ hàng (<?php echo $total_items;?>) 
+            </a>
+            <a href="<?php echo base_url('site/cart');?>" class="cart"><img  width="30" height="30" src="<?php echo public_url('site/images/cart_icon.png');?>" alt="">
+            </a>
+        </p>
     </div>
         <!-- End Login-details -->
 </div>	

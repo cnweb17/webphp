@@ -16,8 +16,9 @@
 					$this->_check_login();
 					break;
 				
-				default:
-					//xu li ngoai admin
+				default:	
+					$this->load->library('cart');
+					$this->data['total_items'] = $this->cart->total_items();
 					break;
 			}
 		}

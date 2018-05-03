@@ -46,7 +46,7 @@ img {
 #logo span a { color: #44acd5; }
 #logo h1 a { display: block; height: 41px; background: url(images/logo.png); text-indent: -4000px; font-size: 0; line-height: 0; }
 
-#login-details { position: absolute; right: 60px; top: 16px; font-size: 12px; line-height: 16px; color: #707070; }
+#login-details { position: absolute; right: 60px; top: 16px; font-size: 14px; line-height: 16px; color: #707070; }
 #login-details #user { color: #0182b5; text-decoration: underline; font-weight:bold; }
 #login-details #user:hover { color: #000; text-decoration: underline; }
 #login-details .sum { color: #0182b5; }
@@ -78,14 +78,6 @@ img {
     align-items: center;
 }
 
-#login-details { position: absolute; right: 60px; top: 16px; font-size: 12px; line-height: 16px; color: #707070; }
-#login-details #user { color: #0182b5; text-decoration: underline; font-weight:bold; }
-#login-details #user:hover { color: #000; text-decoration: underline; }
-#login-details .sum { color: #0182b5; }
-#login-details .sum:hover { text-decoration: none; color: #000; }
-#login-details p { float: left; display: inline; }
-#login-details .cart { float: left; display: inline; margin: 0 6px 0 12px; }
-#login-details .cart img { display: block; }
 
 /* end of header */
 
@@ -304,4 +296,258 @@ a.session
     background-image: url(images/search.png);
     background-size: 50px;
     background-repeat: no-repeat;
+}
+
+/*cart////*/
+.cart_container
+{
+width: 920px;
+overflow: auto;
+}
+.list_book
+{
+    width: 600px;
+    float: left;
+    background-color: #f4f9ec;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.payment
+{
+    width: 290px;
+    height: 220px;
+    float: left;
+    background-color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+.payment_title
+{
+    width: 290px;
+    height: 50px;
+}
+.payment_body
+{
+     width: 290px;
+     overflow: auto;
+     margin-top: 10px;
+}
+.line1
+{
+    margin-top: 10px;
+}
+.text
+{
+    width: 190px;
+    float: left;
+    font-size: 16px;
+}
+.price
+{
+    width: 100px;
+    float: left;
+    font-size: 16px;
+    text-align: right;
+}
+
+.list_header
+{
+    width: 600px;
+    height: 50px;
+    background-color: #DCDCDC;
+}
+.list_header_left
+{
+    width: 370px;
+    float: left;
+    height: 50px;
+}
+.list_header_mid
+{
+    width: 115px;
+    float: left;
+    height: 50px;
+}
+.list_header_right
+{
+    width: 115px;
+    float: left;
+    height: 50px;
+}
+
+.list_details
+{
+    width: 600px;
+    overflow: auto;
+    background-color: white;
+    margin-top: 10px;
+}
+.list_details_left
+{
+    width: 370px;
+    float: left;
+    height: 150px;
+}
+.list_details_mid
+{
+    width: 115px;
+    float: left;
+    height: 150px;
+}
+.list_details_right
+{
+    width: 115px;
+    float: left;
+    height: 150px;
+}
+.list_details_left img
+{  
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 80px;
+    height: 100px;
+    float: left;
+}
+.detail
+{
+    width: 275px;
+    margin-left: 5px;
+    float: left;
+}
+/* form footer cart*/
+.list_footer
+{   
+    width: 600px;
+    height: 100px;
+    background-color: #DCDCDC;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.list_body
+{
+    width: 600px;
+    background-color: #f4f9ec;
+    overflow: auto;
+}
+
+.list_footer_left
+{
+    width: 300px;
+    float: left;
+    background-color: white;
+}
+.list_footer_right
+{
+    width: 300px;
+    float: left;
+    background-color: white;
+}
+.button
+{
+    width: 120px;
+    height: 50px;
+    border: solid;
+    border-width: 1px;
+    border-color: blue;
+    text-align: center;
+    margin-left: 20px;
+}
+.list_footer input
+{
+    margin-top: 30px;
+    width: 200px;
+    height: 50px;
+    border: solid;
+    border-width: 1px;
+    border-color: green;
+    font-size:17px;
+    font-weight: bold;
+    color: green;
+    border-radius: 4px; 
+    text-align: center;
+    margin-left: 40px;
+    background-color: white;
+}
+
+/* form - order*/
+.form_container
+{
+    width: 600px;
+    overflow: auto;
+    background-color: white;
+    margin-left: 150px;
+}
+.form_header
+{
+    width: 600px;
+    height: 50px;
+    padding-top: 10px;
+}
+.form_header p
+{
+    font-size: 20px;
+    color: blue;
+    margin-left: 20px;
+}
+.form_body
+{
+    width: 600px;
+    overflow: auto;
+}
+.form_body_email 
+{
+    width: 600px;
+    height: 80px;
+    margin-top: 10px;
+}
+.form_body_name
+{
+    width: 600px;
+    height: 80px;
+    margin-top: 10px;
+}
+.form_body_phone_number
+{
+    width: 600px;
+    height: 80px;
+    margin-top: 10px;
+}
+.form_body_address
+{
+    width: 600px;
+    height: 80px;
+    margin-top: 10px;
+}
+.input
+{
+    width: 350px;
+    height: 30px;
+    margin-right: 20px;
+    float: right;
+    border: solid;
+    border-width: 1px;
+    border-color: #888888;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.label
+{
+    margin-left: 20px;
+    font-size: 16px;
+}
+.order_error
+{
+    width: 350px;
+    margin-right: 20px;
+    float: right;
+    color: red;
+}
+.form_footer
+{
+    margin-top: 10px;
+    width: 600px;
+    height: 60px;
+    
 }
