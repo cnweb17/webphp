@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2018 at 04:16 PM
+-- Generation Time: May 05, 2018 at 10:53 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -159,6 +159,27 @@ INSERT INTO `book` (`id_book`, `name`, `author`, `publish_year`, `price`, `link_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id_cart` int(11) NOT NULL,
+  `id_cus` int(11) DEFAULT NULL,
+  `id_book` int(11) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `subtotal` double DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id_cart`, `id_cus`, `id_book`, `qty`, `subtotal`) VALUES
+(1, 1, 31, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customer`
 --
 
@@ -177,7 +198,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id_cus`, `username`, `password`, `name`, `birthday`, `address`, `phone_number`) VALUES
-(1, 'h0aday_nd', '84608c6a5cbe1cb47d18dcee88d41555', 'Đào Duy Hòa', '1997-07-12', 'Nam Dinh', '0917437240');
+(1, 'h0aday_nd', '84608c6a5cbe1cb47d18dcee88d41555', 'Đào Duy Hòa', '1997-07-12', 'Nam Dinh', '0917437240'),
+(3, 'tuanvu', 'e10adc3949ba59abbe56e057f20f883e', 'Vũ Đức Anh Tuấn', '1997-08-23', 'Nam định', '3154644878'),
+(4, 'test', 'e10adc3949ba59abbe56e057f20f883e', 'Duy Hòa', '1997-07-12', 'Nam Mỹ', '0949520017');
 
 -- --------------------------------------------------------
 
@@ -188,8 +211,24 @@ INSERT INTO `customer` (`id_cus`, `username`, `password`, `name`, `birthday`, `a
 CREATE TABLE `orders` (
   `id_orders` int(11) NOT NULL,
   `id_cus` int(11) DEFAULT NULL,
-  `total_money` double DEFAULT NULL
+  `total_money` double DEFAULT NULL,
+  `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `phone_number` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id_orders`, `id_cus`, `total_money`, `time`, `address`, `phone_number`, `status`) VALUES
+(2, 1, 3, '0000-00-00 00:00:00', 'Nam dinh', '0917437240', 1),
+(4, 1, NULL, '0000-00-00 00:00:00', '59 Trần Đại Nghĩa, HBT, Hà nội', '0917437240', 1),
+(5, 1, 0, '0000-00-00 00:00:00', '59 Trần Đại Nghĩa, HBT, Hà nội', '0917437240', 0),
+(7, 1, 84, '0000-00-00 00:00:00', 'Nam định', '0917437240', 0),
+(8, 1, 162, '2018-05-04 18:12:41', 'Hai bà trưng', '0949520017', 0),
+(9, 4, 85, '2018-05-05 15:38:34', 'Hai bà trưng, hà nội', '0949520017', 1);
 
 -- --------------------------------------------------------
 
@@ -203,6 +242,18 @@ CREATE TABLE `order_detail` (
   `id_book` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`id_detail`, `id_orders`, `id_book`, `quantity`) VALUES
+(1, 4, 1, 1),
+(2, 4, 2, 2),
+(3, 7, 4, 1),
+(4, 8, 2, 1),
+(5, 8, 6, 1),
+(6, 9, 91, 1);
 
 -- --------------------------------------------------------
 
@@ -249,6 +300,14 @@ ALTER TABLE `book`
   ADD KEY `id_type` (`id_type`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id_cart`),
+  ADD KEY `id_cus` (`id_cus`),
+  ADD KEY `id_book` (`id_book`);
+
+--
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
@@ -292,22 +351,28 @@ ALTER TABLE `book`
   MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id_cus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_cus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -318,6 +383,13 @@ ALTER TABLE `order_detail`
 --
 ALTER TABLE `book`
   ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`id_type`) REFERENCES `type` (`id_type`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`id_cus`) REFERENCES `customer` (`id_cus`),
+  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`id_book`) REFERENCES `book` (`id_book`);
 
 --
 -- Constraints for table `orders`
