@@ -17,7 +17,7 @@
 
 			<li class="home">
 		
-			<a href="admin/home.html" class="active" id="current">
+			<a href="<?php echo base_url('admin/transaction');?>" class="active" id="current">
 				<span>Bảng điều khiển</span>
 				<strong></strong>
 			</a>
@@ -26,26 +26,24 @@
 		</li>
 			<li class="tran">
 		
-			<a href="admin/tran.html" class="exp inactive">
+			<a href="" class="exp inactive">
 				<span>Quản lý bán hàng</span>
-				<strong>2</strong>
+				<strong>1</strong>
 			</a>
 			
 					<ul class="sub" >
 						<li>
-							<a href="admin/tran.html">Giao dịch</a>
-						</li>
-						<li>
-							<a href="admin/product_order.html">Đơn hàng sản phẩm</a>
+							<a href="<?php echo base_url('admin/transaction');?>">Giao dịch
+							</a>
 						</li>
 					</ul>
 						
 		</li>
 			<li class="product">
 		
-			<a href="admin/product.html" class="exp inactive">
+			<a href="" class="exp inactive">
 				<span>Sản phẩm</span>
-				<strong>3</strong>
+				<strong>2</strong>
 			</a>
 			
 				<ul class="sub" >
@@ -62,9 +60,9 @@
 		</li>
 			<li class="account">
 		
-			<a href="admin/account.html" class="exp inactive">
+			<a href="" class="exp inactive">
 				<span>Tài khoản</span>
-				<strong>3</strong>
+				<strong>2</strong>
 			</a>
 			
 						<ul class="sub" >
@@ -79,33 +77,7 @@
 						</ul>
 						
 		</li>
-			<li class="content">
-		
-			<a href="admin/content.html" class="exp inactive">
-				<span>Nội dung</span>
-				<strong>4</strong>
-			</a>
 			
-							<ul class="sub" >
-											<li>
-							<a href="admin/slide.html">
-								Slide							</a>
-						</li>
-											<li>
-							<a href="admin/news.html">
-								Tin tức							</a>
-						</li>
-											<li>
-							<a href="admin/info.html">
-								Trang thông tin							</a>
-						</li>
-											<li>
-							<a href="admin/video.html">
-								Video							</a>
-						</li>
-									</ul>
-						
-		</li>
 </ul>
 			
 		</div>
