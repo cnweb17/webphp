@@ -8,7 +8,7 @@
 	?>
 	<div class="widget">
 		<div class="title">
-			<span class="titleIcon"><input type="checkbox" id="titleCheck" name="titleCheck"></span>
+			
 			<h6>Danh sách Thể Loại</h6>
 		 	<div class="num f12">Tổng số: <b><?php echo $total;?></b></div>
 		</div>
@@ -17,10 +17,10 @@
 		<table cellpadding="0" cellspacing="0" width="100%" class="sTable mTable myTable withCheck" id="checkAll">
 			<thead>
 				<tr>
-					<td style="width:10px;"><img src="<?php echo public_url('admin'); ?>/images/icons/tableArrows.png"></td>
-					<td style="width:80px;">Mã</td>
+					
+					<td style="width:200px;">Mã</td>
 					<td>Tên thể loại</td>
-					<td style="width:100px;">Hành động</td>
+					<td style="width:150px;">Hành động</td>
 				</tr>
 			</thead>
 			
@@ -43,7 +43,7 @@
 				<!-- Filter -->
 				<?php  foreach ($list as $row): ?>
 					<tr>
-						<td><input type="checkbox" name="id[]" value="<?php echo $row->id_type ;?>"></td>
+						
 						
 						<td class="textC"><?php echo $row->id_type ;?></td>
 

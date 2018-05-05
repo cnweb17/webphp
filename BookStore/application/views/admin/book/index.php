@@ -11,7 +11,7 @@
 	}
 	?>
 		<div class="title">
-			<span class="titleIcon"><input type="checkbox" id="titleCheck" name="titleCheck" /></span>
+			
 			<h6>
 				Danh sách sản phẩm			</h6>
 		 	<div class="num f12">Số lượng: <b><?php echo $total;?> </b></div>
@@ -69,7 +69,6 @@
 			
 			<thead>
 				<tr>
-					<td style="width:21px;"><img src="<?php echo public_url('admin')?>/images/icons/tableArrows.png" /></td>
 					<td style="width:60px;">Mã Số</td>
 					<td>Tên</td>
 					<td>Tác Giả</td>
@@ -84,13 +83,7 @@
 
 				<tr>
 					<td colspan="6">
-						 <div class="list_action itemActions">
-								<a href="#submit" id="submit" class="button blueB" url="admin/product/del_all.html">
-									<span style='color:white;'>Xóa hết</span>
-								</a>
-						 </div>
-							
-					     
+						 
 					</td>
 				</tr>
 			</tfoot>
@@ -98,8 +91,6 @@
 			<tbody class="list_item">
 				<?php foreach($list as $row): ?>
 			    <tr class='row_9'>
-					<td>
-					<input type="checkbox" name="id[]" value="<?php echo $row->id_book; ?>" /></td>
 					
 					<td class="textC"><?php echo $row->id_book; ?></td>
 					
@@ -113,8 +104,6 @@
 					<b><?php echo $row->name ;?></b>
 					</a>
 					
-					<div class="f11" >
-					  Đã bán: 0	| Xem: 0					</div>
 						
 					</td>
 					<td><span title="<?php echo $row->author ;?>" class="tipS">

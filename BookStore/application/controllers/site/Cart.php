@@ -8,7 +8,11 @@ class Cart extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
-		
+		$this->load->model('Cart_Model');
+		if($this->session->userdata('username_logged_in') == NULL)
+		{
+			redirect('site/login');
+		}
 	}
 
 	function add()
@@ -18,29 +22,21 @@ class Cart extends MY_Controller
 		$this->load->model('admin/Book_Model');
 		$info = $this->Book_Model->get_info($id_book);
 
-		//print_r($info);
-
 		if(!$info)
 		{
 			redirect(base_url());
 		}
 
-		//echo $id_book;
-		$data = array();
-		$qty = 1;
-		$data['id']= $info->id_book;
-		$data['qty']= $qty;
-		$data['price'] = $info->price;
-		$data['name'] = url_title($info->name,' ');
-		$data['link_image'] = $info->link_image;
-		$data['author']= $info->author;
-		
-		
-		$this->cart->insert($data);
+			$data = array();
+			$qty = 1;
+			$data['id']= $info->id_book;
+			$data['qty']= $qty;
+			$data['price'] = $info->price;
+			$data['name'] = url_title($info->name,' ');
+			$data['link_image'] = $info->link_image;
+			$data['author']= $info->author;
 
-		//echo "<pre>";
-		//print_r($this->cart->contents());
-		//echo "</pre>";
+			$this->cart->insert($data);
 
 		redirect(base_url('site/cart/index'));
 	}
