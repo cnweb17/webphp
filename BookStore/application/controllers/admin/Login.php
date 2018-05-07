@@ -24,7 +24,7 @@ class Login extends MY_Controller
 		if($this->Admin_Model->check_exists($where))
 		{
 			$this->session->set_userdata('admin_login', 'ok');
-			redirect(base_url('admin/home'));
+			redirect(base_url('admin/transaction'));
 		}
 		else
 		{

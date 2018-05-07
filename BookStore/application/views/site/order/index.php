@@ -1,3 +1,10 @@
+<?php
+if(isset($message) && $message)
+	{
+		echo "<script>alert('".$message."');</script>";
+	}
+?>
+
 <div class="form_container">
 	<div class="form_header">
 		<p>Thông tin giao hàng</p>
