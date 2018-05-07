@@ -4,22 +4,14 @@
 	<?php $this->load->view("site/head.php");?>
 </head>
 <body>
+	<button onclick="topFunction()" id="topbtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
 	<div id="container">
 			<?php $this->load->view("site/menu.php");?>
-		<div id="header1">
-			<?php $this->load->view("site/header.php");?>
+		<div id="banner">
+			<?php $this->load->view("site/banner.php");?>
 		</div>
-		<!--
-		<div class="search-form" style="position: absolute; right: 250px; size:100px ">
-					<form method="get" action="/tim-kiem.html">
-						<input type="search" id="search_query" placeholder="Tìm kiếm..." value="" name="search_query" class="search-input">
-						<input type="submit" value="Search" name="submit" class="search-submit">
-					</form>
-					<div class="auto_suggest"></div>
-		</div>
-		-->
 		<div id="content">
-		
+
 			<!-- Cho nay de load Cac trang : trang chu, dang nhap, dang ki, tim kiem -->
 			<?php
 				$this->load->view($temp);
@@ -30,4 +22,24 @@
 		</div>
 	</div>
 </body>
+
+<script>
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("topbtn").style.display = "block";
+    } else {
+        document.getElementById("topbtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+</script>
 </html>
