@@ -5,33 +5,30 @@
 	}
 ?>
 <div id="content_right">
-            <h3>Books</h3>
-			<div class="products">
-				<ul>
-					<?php foreach($list as $row):?>
-					<li>
-						<div class="product">
-							<a href="<?php echo base_url('site/book/index?id='.$row->id_book);?>" class="info">
-								<span class="holder">
-									<img src="<?php echo public_url('site/images/book/').$row->link_image;?>" alt="" />
-									<span class="book-name"><?php echo $row->name;?></span>
-									<span class="author"><?php echo $row->author;?></span>
-								</span>
-							</a>
-						</div>
-					</li>
-				<?php endforeach;?>
-					
-				</ul>
-			</div>
-
-	<div style="width: 300px;">
-		<div class='pagination' style="position: inherit;">
-			<?php echo $this->pagination->create_links();?>  
-		</div>
+  <h3>Books</h3>
+	<div class="products">
+		<ul>
+			<?php foreach($list as $row):?>
+			<li class="product">
+					<div class="holder">
+						<a href="<?php echo base_url('site/book/index?id='.$row->id_book);?>" class="info">
+							<img src="<?php echo public_url('site/images/book/').$row->link_image;?>" alt="" />
+							<span class="book-name"><?php echo $row->name;?></span>
+							<span class="author"><?php echo $row->author;?></span>
+						</a>
+						<span class="price"><strong><?php echo $row->price.".000Đ" ;?></strong></span>
+						<span>
+							<button class="addbtn" onclick="addItem()">
+								<i class="fa fa-cart-arrow-down"></i>
+							</button>
+						</span>
+					</div>
+			</li>
+			<?php endforeach;?>
+		</ul>
 	</div>
-	
-</div> <!-- end of content right -->
 
-	
-		
+	<div class='pagination'>
+		<?php echo $this->pagination->create_links();?>
+	</div>
+</div>
