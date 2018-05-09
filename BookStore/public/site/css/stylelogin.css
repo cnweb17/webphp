@@ -59,6 +59,7 @@ input {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
+	margin: 0 auto;
 }
 
 #login fieldset input[type="text"], #login fieldset input[type="password"] {
@@ -75,6 +76,13 @@ input {
 	margin: 0 auto;
 	padding: 4px 0;
 	width: 100px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+
+#login #signuplink {
+	text-align: center;
+	color: green;
 }
 
 #login fieldset input[type="submit"]:hover {

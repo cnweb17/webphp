@@ -1,14 +1,14 @@
 <?php
 /**
-* 
+*
 */
 class Cart extends MY_Controller
 {
-	
+
 	function __construct()
 	{
 		parent::__construct();
-		
+
 	}
 
 	function add()
@@ -34,8 +34,8 @@ class Cart extends MY_Controller
 		$data['name'] = url_title($info->name,' ');
 		$data['link_image'] = $info->link_image;
 		$data['author']= $info->author;
-		
-		
+
+
 		$this->cart->insert($data);
 
 		//echo "<pre>";
@@ -45,15 +45,39 @@ class Cart extends MY_Controller
 		redirect(base_url('site/cart/index'));
 	}
 
+	function addToCart()
+	{
+		//$id_book = $this->uri->segment(4);
+		//$id_book = $this->input->get('id_book');
+
+		$id_book = $_REQUEST["id"];
+		$id_book = intval($id_book);
+		$this->load->model('admin/Book_Model');
+		$info = $this->Book_Model->get_info($id_book);
+
+		$data = array();
+		$qty = 1;
+		$data['id']= $info->id_book;
+		$data['qty']= $qty;
+		$data['price'] = $info->price;
+		$data['name'] = url_title($info->name,' ');
+		$data['link_image'] = $info->link_image;
+		$data['author']= $info->author;
+
+		$this->cart->insert($data);
+
+		echo "".$this->cart->total_items();
+	}
+
 	function index()
 	{
 		$carts = $this->cart->contents();
 		$total_items = $this->cart->total_items();
 
-		
+
 		$this->data['cart'] = $carts;
 		$this->data['total_items'] = $total_items;
-		
+
 		$this->data['temp'] = 'site/cart/index';
 		$this->load->view('site/layout',$this->data);
 	}
