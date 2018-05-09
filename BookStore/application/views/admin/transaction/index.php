@@ -69,8 +69,9 @@ $this->load->view('admin/transaction/header');
 					<td style="width: 80px;">Mã khách hàng</td>
 					<td style="width:120px;">Số tiền</td>
 					<td style="width:120px;">Trạng thái</td>
+					<td style="width:200px; ">Địa chỉ nhận hàng</td>
 					<td>Thời gian tạo</td>
-					<td style="width: 150px;">Số điện thoại</td>
+					<td style="width: 120px;">Số điện thoại</td>
 					<td style="width:100px;">Hành động</td>
 				</tr>
 			</thead>
@@ -110,7 +111,7 @@ $this->load->view('admin/transaction/header');
 							?>
 						</span>
 					</td>
-					
+					<td class="textC"><?php echo $row->address;?></td>
 					<td class="textC"><?php echo $row->time;?></td>
 					<td class="textC"><?php echo $row->phone_number;?></td>
 					
