@@ -8,17 +8,19 @@
 
 				<p><label for="username">Tên đăng nhập</label></p>
 				<p><input type="text" name="username" id="username"
-				 placeholder="username" required 
+				 placeholder="username" required
 				 value="<?php echo $this->input->post('username');?>" >
-				</p> 
+				</p>
 
 				<p><label for="password">Mật khẩu</label></p>
-				<p><input type="password" name="password" id="password" 
-					placeholder="password" required  
+				<p><input type="password" name="password" id="password"
+					placeholder="password" required
 					value="<?php echo $this->input->post('password');?>">
-				</p> 
+				</p>
 
-				<p><input type="submit" name= "submit" value="Đăng nhập"> <a style="color: green" href="<?php echo base_url('site/signup');?>">Đăng kí ngay</a> </p>
+					<input type="submit" name= "submit" value="Đăng nhập">
+					<p  id="signuplink"><a href="<?php echo base_url('site/signup');?>">Đăng kí ngay</a><p>
+
 				<div class="error" align="center" style="font-size: 20px;">
 					<?php
 						if(isset($error) && $error)
@@ -31,6 +33,6 @@
 			</fieldset>
 
 		</form>
-		
+
 
 </div> <!-- end login -->

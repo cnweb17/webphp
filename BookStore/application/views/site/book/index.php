@@ -71,15 +71,14 @@
 	<div class="books">
 		<ul>
 			<?php foreach($list as $row):?>
-			<li>
-				<a href="<?php echo base_url('site/book/index?id='.$row->id_book);?>" class="info">
-					<img src="<?php echo public_url('site/images/book/').$row->link_image;?>" alt="" />
-					<span class="book-name"><?php echo $row->name;?></span>
-					<span class="author"><?php echo $row->author;?></span>
-				</a>
-			</li>
-		<?php endforeach;?>
+				<li>
+					<a href="<?php echo base_url('site/book/index?id='.$row->id_book);?>" class="info">
+						<img src="<?php echo public_url('site/images/book/').$row->link_image;?>" alt="" />
+						<span class="book-name"><?php echo $row->name;?></span>
+						<span class="author"><?php echo $row->author;?></span>
+					</a>
+				</li>
+			<?php endforeach;?>
 		</ul>
-
 	</div>
 </div>

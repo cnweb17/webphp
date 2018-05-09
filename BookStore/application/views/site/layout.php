@@ -25,21 +25,18 @@
 
 <script>
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+// AJAX
+function addItem(id_book) {
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("total_items").innerHTML = "(" + this.responseText + ")";
+				}
+		};
 
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("topbtn").style.display = "block";
-    } else {
-        document.getElementById("topbtn").style.display = "none";
-    }
-}
+		xmlhttp.open("GET", "<?php echo base_url('site/cart/addToCart?id='); ?>" + id_book, true);
+		xmlhttp.send();
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
 }
 </script>
 </html>

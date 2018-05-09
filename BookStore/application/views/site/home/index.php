@@ -18,7 +18,7 @@
 						</a>
 						<span class="price"><strong><?php echo $row->price.".000Đ" ;?></strong></span>
 						<span>
-							<button class="addbtn" onclick="addItem()">
+							<button class="addbtn" onclick="addItem(<?php echo $row->id_book;?>)">
 								<i class="fa fa-cart-arrow-down"></i>
 							</button>
 						</span>

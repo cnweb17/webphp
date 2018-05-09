@@ -20,7 +20,10 @@
          ?>
          <li>
            <a id="cart" href="<?php echo base_url('site/cart');?>">
-             <i class="fa fa-shopping-cart"></i> Giỏ hàng (<?php echo $total_items;?>)
+             <i class="fa fa-shopping-cart"></i> Giỏ hàng
+             <span id="total_items">
+               (<?php echo $total_items;?>)
+             </span>
            </a>
          </li>
        </ul>
