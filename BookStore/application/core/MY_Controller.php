@@ -34,7 +34,7 @@
 			}
 			if(($login == 'ok') && ($crl == 'login'))
 			{
-				redirect(base_url('admin/home'));
+				redirect(base_url('admin/transaction'));
 			}
 		}
 

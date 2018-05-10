@@ -8,7 +8,6 @@ class Cart extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Cart_Model');
 		if($this->session->userdata('username_logged_in') == NULL)
 		{
 			redirect('site/login');
