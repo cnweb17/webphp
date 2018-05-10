@@ -25,6 +25,10 @@
 
 <script>
 
+$('#demo').carousel({
+	interval: 2000
+})
+
 // AJAX
 function addItem(id_book) {
 		var xmlhttp = new XMLHttpRequest();

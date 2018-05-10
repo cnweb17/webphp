@@ -1,11 +1,11 @@
 <?php
 
 	/**
-	* 
+	*
 	*/
 	class Home extends MY_Controller
 	{
-		
+
 		function __construct()
 		{
 			parent::__construct();
@@ -13,10 +13,10 @@
 			$this->load->model('admin/Type_Model');
 			$types = $this->Type_Model->get_list();
 			$this->data['types']= $types;
-			
+
 		}
 		function index()
-		{	
+		{
 			$total = $this->Book_Model->get_total();
 			$this->data['total']= $total;
 
@@ -37,7 +37,7 @@
 			$input= array();
 			$input['limit']= array($config['per_page'], $segment);
 
-			
+
 			//tim kiem
 			$query = $this->input->get('query');
 			if($query)
@@ -60,11 +60,11 @@
 		function type()
 		{
 			$id_type = $this->uri->segment(3);
-			
+
 			//$this->load->model('admin/Type_Model');
 			$type= $this->Type_Model->get_info($id_type);
 			$this->data['type'] = $type;
-			
+
 
 			$input = array();
 			$input['where'] = array();

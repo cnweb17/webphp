@@ -10,12 +10,12 @@
 }
 
 .book_image {
-	width: 300px;
-	height: 470px;
+	width: 280px;
+	height: 437px;
 	float: left;
 }
 #image {
-	width: 300px;
+	width: 280px;
 }
 
 .book_content {
@@ -54,7 +54,7 @@ margin-top: 5px;
 .book_container #addbtn {
 	color: rgb(255, 255, 255);
 	background-color: rgb(46, 176, 224);
-	margin-top: 30px;
+	margin-top: 40px;
 	width: 250px;
 	height: 40px;
 	border: solid;
@@ -105,56 +105,51 @@ margin-top: 5px;
 	padding: 10px;
 }
 
-.books ul {
-  list-style: none;
+.books #recipeCarousel {
 	display: block;
 	height: 380px;
 	margin: 0;
 	padding: 0;
-	overflow: auto;
 }
 
-.books ul li {
-  float: left;
-  display: inline-block;
-  width: 200px;
-  height: 380px;
-	padding: 0;
-  margin: 0;
-	margin-left: 20px;
+.books .item-holder {
+	width: 230px;
+	margin: 0;
+	padding: 0 15px;
 }
 
-.books ul li .info {
+.books .info {
+	width: 200px;
 	height: 380px;
 	padding: 20px;
-  display: block;
+	display: block;
 }
 
-.books ul li .info:hover {
-  background: url(../images/product-hover-small.png) no-repeat 0 0;
-  text-decoration: none;
+.books .info:hover {
+	background: url(../images/product-hover-small.png) no-repeat 0 0;
+	text-decoration: none;
 }
 
 .books img {
-  width: 160px;
+	width: 160px;
 	height: 250px;
 }
 
 .books .book-name {
-  font-size: 14px;
-  line-height: 16px;
-  color: #0182b5;
-  font-family: Arial, serif;
-  display: block;
-  padding: 5px 0;
+	font-size: 14px;
+	line-height: 16px;
+	color: #0182b5;
+	font-family: Arial, serif;
+	display: block;
+	padding: 5px 0;
 }
 
 .books .author {
-  font-size: 13px;
-  line-height: 14px;
-  color: #3d3d3d;
-  font-family: Arial, serif;
-  display: block;
+	font-size: 13px;
+	line-height: 14px;
+	color: #3d3d3d;
+	font-family: Arial, serif;
+	display: block;
 	margin: 0 auto;
 	padding: 5px 0;
 }
