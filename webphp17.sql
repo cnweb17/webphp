@@ -2,10 +2,10 @@
 -- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 05, 2018 at 10:53 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th5 10, 2018 lúc 05:41 PM
+-- Phiên bản máy phục vụ: 10.1.30-MariaDB
+-- Phiên bản PHP: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `webphp17`
+-- Cơ sở dữ liệu: `webphp17`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Cấu trúc bảng cho bảng `admin`
 --
 
 CREATE TABLE `admin` (
@@ -36,7 +36,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `admin`
+-- Đang đổ dữ liệu cho bảng `admin`
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `name`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `admin` (`id_admin`, `username`, `password`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book`
+-- Cấu trúc bảng cho bảng `book`
 --
 
 CREATE TABLE `book` (
@@ -60,7 +60,7 @@ CREATE TABLE `book` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `book`
+-- Đang đổ dữ liệu cho bảng `book`
 --
 
 INSERT INTO `book` (`id_book`, `name`, `author`, `publish_year`, `price`, `link_image`, `description`, `id_type`) VALUES
@@ -159,28 +159,7 @@ INSERT INTO `book` (`id_book`, `name`, `author`, `publish_year`, `price`, `link_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
---
-
-CREATE TABLE `cart` (
-  `id_cart` int(11) NOT NULL,
-  `id_cus` int(11) DEFAULT NULL,
-  `id_book` int(11) DEFAULT NULL,
-  `qty` int(11) DEFAULT NULL,
-  `subtotal` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id_cart`, `id_cus`, `id_book`, `qty`, `subtotal`) VALUES
-(1, 1, 31, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer`
+-- Cấu trúc bảng cho bảng `customer`
 --
 
 CREATE TABLE `customer` (
@@ -194,7 +173,7 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `customer`
+-- Đang đổ dữ liệu cho bảng `customer`
 --
 
 INSERT INTO `customer` (`id_cus`, `username`, `password`, `name`, `birthday`, `address`, `phone_number`) VALUES
@@ -205,7 +184,7 @@ INSERT INTO `customer` (`id_cus`, `username`, `password`, `name`, `birthday`, `a
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 CREATE TABLE `orders` (
@@ -219,21 +198,21 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `orders`
+-- Đang đổ dữ liệu cho bảng `orders`
 --
 
 INSERT INTO `orders` (`id_orders`, `id_cus`, `total_money`, `time`, `address`, `phone_number`, `status`) VALUES
 (2, 1, 3, '0000-00-00 00:00:00', 'Nam dinh', '0917437240', 1),
-(4, 1, NULL, '0000-00-00 00:00:00', '59 Trần Đại Nghĩa, HBT, Hà nội', '0917437240', 1),
-(5, 1, 0, '0000-00-00 00:00:00', '59 Trần Đại Nghĩa, HBT, Hà nội', '0917437240', 0),
 (7, 1, 84, '0000-00-00 00:00:00', 'Nam định', '0917437240', 0),
 (8, 1, 162, '2018-05-04 18:12:41', 'Hai bà trưng', '0949520017', 0),
-(9, 4, 85, '2018-05-05 15:38:34', 'Hai bà trưng, hà nội', '0949520017', 1);
+(9, 4, 85, '2018-05-05 15:38:34', 'Hai bà trưng, hà nội', '0949520017', 0),
+(10, 1, 85, '2018-05-09 23:32:25', 'Nam định', '0917437240', 0),
+(11, 1, 118, '2018-05-10 22:21:18', '', '0917437240', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_detail`
+-- Cấu trúc bảng cho bảng `order_detail`
 --
 
 CREATE TABLE `order_detail` (
@@ -244,21 +223,21 @@ CREATE TABLE `order_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `order_detail`
+-- Đang đổ dữ liệu cho bảng `order_detail`
 --
 
 INSERT INTO `order_detail` (`id_detail`, `id_orders`, `id_book`, `quantity`) VALUES
-(1, 4, 1, 1),
-(2, 4, 2, 2),
 (3, 7, 4, 1),
 (4, 8, 2, 1),
 (5, 8, 6, 1),
-(6, 9, 91, 1);
+(6, 9, 91, 1),
+(7, 10, 91, 1),
+(8, 11, 88, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `type`
+-- Cấu trúc bảng cho bảng `type`
 --
 
 CREATE TABLE `type` (
@@ -267,7 +246,7 @@ CREATE TABLE `type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `type`
+-- Đang đổ dữ liệu cho bảng `type`
 --
 
 INSERT INTO `type` (`id_type`, `name`) VALUES
@@ -283,45 +262,37 @@ INSERT INTO `type` (`id_type`, `name`) VALUES
 ('vhtn', 'Sách Văn Học Trong Nước');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `admin`
+-- Chỉ mục cho bảng `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `book`
+-- Chỉ mục cho bảng `book`
 --
 ALTER TABLE `book`
   ADD PRIMARY KEY (`id_book`),
   ADD KEY `id_type` (`id_type`);
 
 --
--- Indexes for table `cart`
---
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`id_cart`),
-  ADD KEY `id_cus` (`id_cus`),
-  ADD KEY `id_book` (`id_book`);
-
---
--- Indexes for table `customer`
+-- Chỉ mục cho bảng `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`id_cus`);
 
 --
--- Indexes for table `orders`
+-- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id_orders`),
   ADD KEY `id_cus` (`id_cus`);
 
 --
--- Indexes for table `order_detail`
+-- Chỉ mục cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
   ADD PRIMARY KEY (`id_detail`),
@@ -329,76 +300,63 @@ ALTER TABLE `order_detail`
   ADD KEY `id_orders` (`id_orders`);
 
 --
--- Indexes for table `type`
+-- Chỉ mục cho bảng `type`
 --
 ALTER TABLE `type`
   ADD PRIMARY KEY (`id_type`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `book`
+-- AUTO_INCREMENT cho bảng `book`
 --
 ALTER TABLE `book`
   MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
--- AUTO_INCREMENT for table `cart`
---
-ALTER TABLE `cart`
-  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `customer`
+-- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
   MODIFY `id_cus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_orders` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `order_detail`
+-- AUTO_INCREMENT cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
-  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `book`
+-- Các ràng buộc cho bảng `book`
 --
 ALTER TABLE `book`
   ADD CONSTRAINT `book_ibfk_1` FOREIGN KEY (`id_type`) REFERENCES `type` (`id_type`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `cart`
---
-ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`id_cus`) REFERENCES `customer` (`id_cus`),
-  ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`id_book`) REFERENCES `book` (`id_book`);
-
---
--- Constraints for table `orders`
+-- Các ràng buộc cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`id_cus`) REFERENCES `customer` (`id_cus`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `order_detail`
+-- Các ràng buộc cho bảng `order_detail`
 --
 ALTER TABLE `order_detail`
   ADD CONSTRAINT `order_detail_ibfk_1` FOREIGN KEY (`id_book`) REFERENCES `book` (`id_book`) ON DELETE CASCADE ON UPDATE CASCADE,
